@@ -22,7 +22,7 @@ public class Beak1546_average {
 
 		Scanner sc = new Scanner(System.in);
 		
-		int n = sc.nextInt();		// 과목의 갯수 입력받음
+		int n = sc.nextInt();				// 과목의 갯수 입력받음
 		
 		
 		float[] arrFloat = new float[n];	// 과목의 갯수 만큼 배열을 생성
@@ -32,7 +32,7 @@ public class Beak1546_average {
 		}
 		
 		
-		Arrays.sort(arrFloat);		// Arrays class의 정렬 알고리즘 (defult:오름차순 정렬)
+		Arrays.sort(arrFloat);				// Arrays class의 정렬 알고리즘 (defult:오름차순 정렬)
 		
 		m = arrFloat[n-1];
 		
