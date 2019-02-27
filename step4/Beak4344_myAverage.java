@@ -1,5 +1,5 @@
 /*
- * 각 그룹별로 평균이 넘는 학생의 비율을 반올림하여 첫째자리까지 출력
+ * [미해결] 문제 : 각 그룹별로 평균이 넘는 학생의 비율을 반올림하여 첫째자리까지 출력
  * 
  * 1. 입력
  * 	- [ok] 그룹의 갯수 countGroup, 그룹별 학생의 수 countStudent, 각 학생의 점수 scoreStudent
@@ -15,9 +15,11 @@
  * 
  * 5. 틀렸음..
  *  - QnA 에서 찾아볼것
- *  - 일단 문제 접근방식이 틀린듯.... ㅠㅠ
+ *  - 현재 로직 : 전체 그룹을 입력받고 일괄출력 -> 그룹별로 입력 및 출력도 가능함
  * 
  */
+
+
 
 
 
@@ -33,14 +35,13 @@ public class Beak4344_myAverage {
 		int[] count;		// 그룹별 학생들의 명수 (배열)
 		int[][] score; 		// 각 학생들의 점수 (2 차원 배열)
 		
-		
-		// 아래의 변수들은 전부 배열로 바꿔야함 (행 별로 필요하기 때문임)
+
 		int sum[];
 		int average[];
 		
 		int highStudent[];		// 평균을 초과하는 학생의 명수
 		double highRate[]; 		// 평균을 초과하는 학생의 비율
-		double resultRate[];
+		double resultRate[];	// 반올림 결과
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -59,22 +60,20 @@ public class Beak4344_myAverage {
 		
 		
 		
-		// 그룹별 학생 수와 점수를 입력받는 로직
-		for(int line=0 ; line<group ; line++) {					// 행 (=줄)
+		// 그룹별 학생 수와 점수를 입력받는 로직 //
+		for(int line=0 ; line<group ; line++) {
 			
 			count[line] = sc.nextInt();
 			
-			for(int row=0 ; row<count[line] ; row++) {			// 열
+			for(int row=0 ; row<count[line] ; row++) {
 				score[line][row] = sc.nextInt();
 			}
 		}
 
 
-		
+		// group의 평균을 연산 //
 		for(int loop=0 ; loop<group ; loop++) {
 			
-			
-			// group의 평균을 연산 //
 			for(int row=0 ; row<count[loop] ; row++) {
 				sum[loop] += score[loop][row];
 			}
